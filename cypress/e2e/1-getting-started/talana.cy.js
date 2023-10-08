@@ -2,13 +2,13 @@
 
 describe('Talana ecommerce', function() {
 
-    it('Visitar la página', function() { 
+    it.only('Visitar la página', function() { 
         //https://www.demoblaze.com/index.html
         cy.visit('https://www.demoblaze.com/index.html')
     }
     )
 
-    it.only('Agregar categorias', function() {
+    it('Agregar categorias', function() {
         // Visita la página de Example
         cy.visit('https://www.demoblaze.com/index.html')
         // Click en la categoría [onclick="byCat('phone')"]
@@ -35,10 +35,31 @@ describe('Talana ecommerce', function() {
          
         cy.contains('Apple monitor 24').click(); //escoge monitor que contenga Apple monitor 24
 
-        cy.get('.col-sm-12 > .btn') //agrega al carrito 
+        cy.get('.col-sm-12 > .btn').click() //agrega al carrito 
         cy.get('.active > .nav-link').click() //home 
 
-        cy.get('#cartur').click() //verificar carrito 
+        cy.get('#cartur').click() //verificar carrito         
         
     })
+    it.only('carrito de compras', function() {
+        cy.visit('https://www.demoblaze.com/index.html')
+        cy.contains('Samsung galaxy s6').click();
+        cy.get('.col-sm-12 > .btn').click() //agrega al carrito 
+        cy.get('.active > .nav-link').click() //home 
+        cy.contains('Nokia lumia 1520').click()
+        cy.get('.col-sm-12 > .btn').click() //agrega al carrito 
+        cy.get('.active > .nav-link').click() //home 
+        cy.contains('Nexus 6').click()
+        cy.get('.col-sm-12 > .btn').click() //agrega al carrito 
+        cy.get('#cartur').click() //ver carrito 
+        cy.get('#tbodyid > :nth-child(1) > :nth-child(4) > a').click() //delete item
+
+
+
+            
+    })
+    
+
+    
+    
 })

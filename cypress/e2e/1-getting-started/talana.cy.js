@@ -22,5 +22,18 @@ describe('Talana ecommerce', function() {
         //.active > .nav-link
         cy.get('.active > .nav-link').click() //ir al home 
         
+        cy.get('[onclick="byCat(\'notebook\')"]').click() //categoría notebook 
+        cy.get(':nth-child(1) > .card > .card-block > .card-title > .hrefch').click() //escoge pc
+        cy.get('.col-sm-12 > .btn').click() //agrega al carrito 
+        cy.get('.active > .nav-link').click() //regresa al home 
+
+        //[onclick="byCat('monitor')"]
+        cy.get('[onclick="byCat(\'monitor\')"]').click() //categoría monitor
+        cy.get(':nth-child(1) > .card > .card-block > .card-title > .hrefch')//escoge monitor 
+        cy.get('.col-sm-12 > .btn') //agrega al carrito 
+        cy.get('.active > .nav-link').click() //home 
+
+        cy.get('#cartur').click() //verificar carrito 
+        
     })
 })

@@ -2,7 +2,8 @@
 
 describe('Talana ecommerce', function() {
 
-    //utiliza only luego de it, it.only para ejecutar la prueba que desees en en entorno de cypress 
+    //utiliza only luego de it, it.only para ejecutar la prueba que desees en en entorno de cypress sección specs
+    //cuando ejecutes npx cypress open debes seleccionar pruebas end to end
     it.only('Visitar la página', function() { 
         //https://www.demoblaze.com/index.html
         cy.visit('https://www.demoblaze.com/index.html')
